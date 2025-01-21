@@ -24,7 +24,7 @@ builddir="$srcdir"
 
 build() {
 	xcaddy build "v$pkgver" \
-		--with https://github.com/caddy-dns/cloudflare
+		--with github.com/caddy-dns/cloudflare
 }
 
 check() {
