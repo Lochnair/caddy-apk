@@ -1,6 +1,9 @@
 pipeline {
     agent {
-        docker { image 'lochnair/alpine-sdk:latest' }
+        docker { 
+            image 'lochnair/alpine-sdk:latest'
+            args '--group-add abuild'
+        }
     }
     
     stages {
