@@ -14,6 +14,7 @@ pipeline {
                     withCredentials([file(credentialsId: 'abuild-privkey', variable: 'PACKAGER_PRIVKEY'), file(credentialsId: 'abuild-pubkey', variable: 'PACKAGER_PUBKEY')]) {
                         sh 'doas cp -v $PACKAGER_PUBKEY /etc/apk/keys/'
                         sh 'ls -l /etc/apk/keys'
+                        sh 'cat $PACKAGER_PUBKEY'
                         sh 'abuild -r'
                     }
                 }
