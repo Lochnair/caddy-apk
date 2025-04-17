@@ -23,6 +23,7 @@ pipeline {
         stage('Archive') {
             steps {
                 archiveArtifacts artifacts: 'repo/**/*.apk', fingerprint: true, onlyIfSuccessful: true
+                archiveArtifacts artifacts: '$PACKAGER_PUBKEY', fingerprint: true, onlyIfSuccessful: true
             }
         }
     }
