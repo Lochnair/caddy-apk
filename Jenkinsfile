@@ -23,9 +23,7 @@ pipeline {
         stage('Archive') {
             steps {
                 archiveArtifacts artifacts: 'repo/**/*.apk', fingerprint: true, onlyIfSuccessful: true
-                withCredentials([file(credentialsId: 'abuild-pubkey', variable: 'PACKAGER_PUBKEY')]) {
-                    archiveArtifacts artifacts: '$PACKAGER_PUBKEY', fingerprint: true, onlyIfSuccessful: true
-                }
+                archiveArtifacts artifacts: '/etc/apk/keys/-67ffd4d4.rsa.pub', fingerprint: true, onlyIfSuccessful: true
             }
         }
     }
