@@ -15,6 +15,7 @@ pipeline {
                         sh 'doas cp -v $PACKAGER_PUBKEY /etc/apk/keys/'
                         sh 'doas chmod 644 /etc/apk/keys/*'
                         sh 'abuild -r'
+                        sh 'cp -v $PACKAGER_PUBKEY repo/'
                     }
                 }
             }
@@ -23,7 +24,7 @@ pipeline {
         stage('Archive') {
             steps {
                 archiveArtifacts artifacts: 'repo/**/*.apk', fingerprint: true, onlyIfSuccessful: true
-                archiveArtifacts artifacts: '/etc/apk/keys/-67ffd4d4.rsa.pub', fingerprint: true, onlyIfSuccessful: true
+                archiveArtifacts artifacts: 'repo/*.pub', fingerprint: true, onlyIfSuccessful: true
             }
         }
     }
