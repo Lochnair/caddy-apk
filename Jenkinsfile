@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker { 
-            image 'lochnair/alpine-sdk:latest'
+            image 'lochnair/alpine-sdk:edge'
             args '--group-add abuild'
         }
     }
