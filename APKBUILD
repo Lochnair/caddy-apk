@@ -1,7 +1,7 @@
 # Contributor: Michał Polański <michal@polanski.me>
 # Maintainer: Michał Polański <michal@polanski.me>
 pkgname=caddy
-pkgver=2.9.1
+pkgver=2.10.0
 pkgrel=1
 pkgdesc="Fast, multi-platform web server with automatic HTTPS"
 url="https://caddyserver.com/"
